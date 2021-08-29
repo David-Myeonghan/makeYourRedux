@@ -26,6 +26,10 @@ const store = createStore(reducer);
 store.subscribe(listener);
 
 // (뭘 수정할거야, 이렇게 수정해줘)
-store.dispatch(actionCreator(COUNTER, {  counter: 1}));
-store.dispatch(actionCreator(COUNTER, {  counter: 2}));
+// store.dispatch(actionCreator(COUNTER, {  counter: 2}));
+// dispatch 는 다시 아래와 같이 진화
+function counter(data) {
+    store.dispatch(actionCreator(COUNTER, data));
+}
 
+counter({counter: 1})
